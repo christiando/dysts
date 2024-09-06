@@ -1466,7 +1466,7 @@ class ItikBanksTumor(DynSys):
         zdot = r3 * x * z / (x + k3) - a31 * x * z - d3 * z
         return xdot, ydot, zdot
 
-
+print('loaded!')
 ## Doesn't match described dynamics
 # class CosmologyFriedmann(DynSys):
 #     @staticjit

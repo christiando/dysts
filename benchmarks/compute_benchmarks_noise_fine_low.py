@@ -89,8 +89,8 @@ for equation_name in list(equation_data.dataset.keys())[::+1]:
     #220812_results_ #for the third presentation Small noise 0.2
     train_data += 0.2 * np.std(train_data) * np.random.normal(size=train_data.shape[0])
     
-    ##221025_results_ #for the third presentation Large noise 0.8
-    ##240605_results_ #for the third presentation Large noise 0.8
+    #221025_results_ #for the third presentation Large noise 0.8
+    #240605_results_ #for the third presentation Large noise 0.8
     #train_data += 0.8 * np.std(train_data) * np.random.normal(size=train_data.shape[0])
 
     if equation_name not in all_results.keys():

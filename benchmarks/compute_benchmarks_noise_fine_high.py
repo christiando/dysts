@@ -35,7 +35,7 @@ input_path = os.path.dirname(cwd)  + "/dysts/data/test_univariate__pts_per_perio
 ## link to TEST data
 
 dataname = os.path.splitext(os.path.basename(os.path.split(input_path)[-1]))[0]
-output_path = cwd + "/results/220812_results_" + dataname + "_noise.json"
+output_path = cwd + "/results/221025_results_" + dataname + "_noise.json"
 #240605_results_ #for the third presentation Large noise 0.8 old hyperparam
 #240606_results_ #for the third presentation Large noise 0.2 old hyperparam
 
@@ -43,7 +43,7 @@ output_path = cwd + "/results/220812_results_" + dataname + "_noise.json"
 #220812_results_ #for the third presentation Small noise 0.2
 #220428_results_ #for the second presentation
 dataname = dataname.replace("test", "train" )
-hyperparameter_path = cwd + "/hyperparameters/220812_hyperparameters_" + dataname + ".json"
+hyperparameter_path = cwd + "/hyperparameters/221025_hyperparameters_" + dataname + ".json"
 #221025_results_ #for the third presentation Large noise 0.8
 #220812_results_ #for the third presentation Small noise 0.2
 #220428_hyperparameters_ #for the second presentation
@@ -87,11 +87,11 @@ for equation_name in list(equation_data.dataset.keys())[::+1]:
     noise_scale = np.std(train_data[:int(5/6 * len(train_data))]) # prevent leakage
     
     #220812_results_ #for the third presentation Small noise 0.2
-    train_data += 0.2 * np.std(train_data) * np.random.normal(size=train_data.shape[0])
+    #train_data += 0.2 * np.std(train_data) * np.random.normal(size=train_data.shape[0])
     
-    ##221025_results_ #for the third presentation Large noise 0.8
-    ##240605_results_ #for the third presentation Large noise 0.8
-    #train_data += 0.8 * np.std(train_data) * np.random.normal(size=train_data.shape[0])
+    #221025_results_ #for the third presentation Large noise 0.8
+    #240605_results_ #for the third presentation Large noise 0.8
+    train_data += 0.8 * np.std(train_data) * np.random.normal(size=train_data.shape[0])
 
     if equation_name not in all_results.keys():
         all_results[equation_name] = dict()
