@@ -26,6 +26,12 @@ import darts
 from darts.models import *
 from darts import TimeSeries
 import darts.models
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--pnlss_only', action='store_true', help='Run pnlss models only')
+args = parser.parse_args()
 
 
 
@@ -105,11 +111,12 @@ for equation_name in list(equation_data.dataset.keys())[::+1]:
     for model_name in all_hyperparameters[equation_name].keys():
         if model_name in all_results[equation_name].keys():
             #continue
-            if model_name in ['LSS_Takens','NLSS_Takens']:
-                print(f"{model_name} exists, but forced to re-fit")
-            else:
-                print(equation_name + " " + model_name, flush=True)
-                continue
+            if not args.pnlss_only:
+                if model_name in ['LSS_Takens','NLSS_Takens']:
+                    print(f"{model_name} exists, but forced to re-fit")
+                else:
+                    print(equation_name + " " + model_name, flush=True)
+                    continue
 
         # if model_name == "NLSS_Sampling": #"NLSS":
         #     print(f"{model_name} exists in hyperparam search, but skips")
